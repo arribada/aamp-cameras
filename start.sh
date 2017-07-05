@@ -12,7 +12,7 @@ ifconfig wlan1 up
 
 sleep 5
 
-python ./activate_connection.py aamp-camera-5
+python ./activate_connection.py echo $ACCESS_POINT_NAME
 
 modprobe v4l2_common && python cam-single-photo.py &
 cd /data
