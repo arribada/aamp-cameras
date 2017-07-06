@@ -9,14 +9,9 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # get iptables so we can port forward
 RUN	apt-get update && apt-get install iptables
 
-# we need mDNS to connect to .local devices on the arboreal network
-RUN apt-get update && \
-    apt-get install -yq \
-      avahi-daemon avahi-utils libnss-mdns iptables
-
-RUN systemctl enable avahi-daemon
-
-COPY nsswitch.conf /etc/nsswitch.conf
+RUN apt-get update && apt-get install -yq --no-install-recommends \
+	avahi-daemon \
+&& apt-get clean && rm -rf /var/lib/apt/lists/*
 	
 # here we set up the config for openSSH.
 RUN mkdir /var/run/sshd \
