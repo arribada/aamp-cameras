@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # get iptables so we can port forward
 RUN	apt-get update && apt-get install iptables
 
-RUN apt-get update && apt-get install libnss-mdns
+# RUN apt-get update && apt-get install libnss-mdns
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
 	avahi-daemon \
