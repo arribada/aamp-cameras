@@ -22,7 +22,7 @@ except OSError:
 print "Create new directory {timestamp:%Y-%m-%d}"
 
 camera = PiCamera()
-camera.CAPTURE_TIMEOUT = 60 # seconds
+picamera.PiCamera.CAPTURE_TIMEOUT = 60
 camera.resolution = (1080, 720)
 
 sleep(2)
