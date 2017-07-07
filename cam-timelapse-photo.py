@@ -8,8 +8,10 @@ from picamera import PiCamera
 
 import os, sys
 
+get_date = my_datetime.strftime("%B %d, %Y")
+
 # Path to be created
-path = "/data/{timestamp:%Y-%m-%d}"
+path = "/data/%s" % get_date
 
 os.mkdir( path, 0755 );
 
