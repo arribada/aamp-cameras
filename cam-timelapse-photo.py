@@ -1,18 +1,19 @@
 #!/usr/bin/python
 # AAMP photo timelapse
 
-import os
+import os, sys
 from os import system
 from time import sleep
 from picamera import PiCamera
 
+import os, sys
+
+# Path to be created
 path = "/data/{timestamp:%Y-%m-%d}"
 
-try: 
-    os.makedirs(path)
-except OSError:
-    if not os.path.isdir(path):
-        raise
+os.mkdir( path, 0755 );
+
+print "Create new directory {timestamp:%Y-%m-%d}"
 
 camera = PiCamera()
 camera.resolution = (1920, 1080)
