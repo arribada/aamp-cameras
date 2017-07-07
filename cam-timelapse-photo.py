@@ -2,6 +2,7 @@
 # AAMP photo timelapse
 
 import os, sys
+import datetime
 from os import system
 from time import sleep
 from picamera import PiCamera
