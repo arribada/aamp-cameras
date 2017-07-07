@@ -22,7 +22,8 @@ except OSError:
 print "Create new directory {timestamp:%Y-%m-%d}"
 
 camera = PiCamera()
-camera.resolution = (1920, 1080)
+camera.CAPTURE_TIMEOUT = 60 # seconds
+camera.resolution = (1080, 720)
 
 sleep(2)
 for filename in camera.capture_continuous('/data/{timestamp:%Y-%m-%d}/img{counter:03d}_{timestamp:%Y-%m-%d-%H-%M}.jpg'):
