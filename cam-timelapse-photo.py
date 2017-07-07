@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # AAMP photo timelapse
 
+import os
 from os import system
 from time import sleep
 from picamera import PiCamera
