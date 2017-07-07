@@ -8,7 +8,7 @@ from picamera import PiCamera
 
 import os, sys
 
-get_date = strftime("%B %d, %Y")
+get_date = datetime.datetime.now().strftime("%Y-%m-%d")
 
 # Path to be created
 path = "/data/%s" % get_date
