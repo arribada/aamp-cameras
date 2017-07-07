@@ -14,7 +14,10 @@ get_date = datetime.datetime.now().strftime("%Y-%m-%d")
 # Path to be created
 path = "/data/%s" % get_date
 
-os.mkdir( path, 0755 );
+try:
+    os.mkdir( path, 0755 );
+except OSError:
+    pass
 
 print "Create new directory {timestamp:%Y-%m-%d}"
 
