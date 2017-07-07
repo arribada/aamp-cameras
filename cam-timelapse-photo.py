@@ -6,6 +6,7 @@ import datetime
 from os import system
 from time import sleep
 from picamera import PiCamera
+import picamera
 
 import os, sys
 
@@ -21,8 +22,9 @@ except OSError:
 
 print "Create new directory {timestamp:%Y-%m-%d}"
 
-camera = PiCamera()
+camera = picamera.PiCamera()
 picamera.PiCamera.CAPTURE_TIMEOUT = 60
+
 camera.resolution = (1080, 720)
 
 sleep(2)
