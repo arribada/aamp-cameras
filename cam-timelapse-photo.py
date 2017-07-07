@@ -1,14 +1,14 @@
 #!/usr/bin/python
 # AAMP photo timelapse
 
-from picamera import PiCamera
 from os import system
 from time import sleep
+from picamera import PiCamera
 
 camera = PiCamera()
 camera.resolution = (1920, 1080)
 
-for i in range(720):
-    camera.capture('/data/image{0:04d}.jpg'.format(i))
-    print "Photo taken - waiting 2 mins"
-    sleep(120)
+sleep(2)
+for filename in camera.capture_continuous('/data/{timestamp:%Y-%m-%d}/img{counter:03d}_{timestamp:%Y-%m-%d-%H-%M}.jpg'):
+    print('Captured %s' % filename)
+    sleep(120) # wait 2 mins
