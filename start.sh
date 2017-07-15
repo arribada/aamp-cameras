@@ -28,8 +28,33 @@ sleep 5
 
 python ./activate_connection.py $ACCESS_POINT_NAME
 
+sleep 5
+
+# set more to BCM and then pull up pin 26
+gpio -g mode 26 up
+
+# Set the variable through command substitution
+b=$(gpio -g read 26)
+
+# Echo the value to the console so we know it's state
+echo "$b"
+
+If $b == "HIGH"
+then
+
+	echo "Entering debug mode"
+
+	python cam_debug.py
+
+else
+	
+	echo "Entering normal mode"
+
 modprobe v4l2_common && python $CAMERA_MODE.py &
 cd /data
 
 #end by starting server
 python -m SimpleHTTPServer 80
+
+	.
+fi
