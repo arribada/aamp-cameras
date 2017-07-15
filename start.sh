@@ -28,7 +28,7 @@ sleep 5
 
 python ./activate_connection.py $ACCESS_POINT_NAME
 
-modprobe v4l2_common && python cam-timelapse-photo.py &
+modprobe v4l2_common && python $CAMERA_MODE.py &
 cd /data
 
 #end by starting server

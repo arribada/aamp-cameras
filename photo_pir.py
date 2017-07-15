@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# AAMP video triggered by PIR, default 5 seconds per video 
+# AAMP photo triggered by PIR
 
 import RPi.GPIO as GPIO
 import time
@@ -51,21 +51,21 @@ while True:
             # Recording that a PIR trigger was detected
             logging.info('PIR trigger detected')
 
-            # Assigning a variable so we can create a video .h264 file that contains the date and time as its name
-            video = get_date + '_' +  get_time + '.h264'
+            # Assigning a variable so we can create a .jpg file that contains the date and time as its name
+            photo = get_date + '_' +  get_time + '.jpg'
 
-            # Using the raspivid library to take a 5 second video
-            cmd = 'raspivid -t 5000 -w 800 -h 600 -o /data/' + video 
+            # Using the raspistill library to take a photo
+            cmd = 'raspistill -t 300 -w 1920 -h 1440 --nopreview -o /data/' + photo 
 			print 'cmd ' +cmd          
 
-            # Log that we have just taken a video
-            logging.info('About to take a video and save to the /data folder')
+            # Log that we have just taken a photo
+            logging.info('About to take a photo and save to the /data folder')
             call ([cmd], shell=True)
             # call ([perms], shell=True)
             
             # Log that a photo was taken successfully and state the file name so we know which one"
-            logging.info('Video taken successfully %(show_video_name)s', { 'show_video_name': video })
-            photo_location =  '/data/' + video                   
+            logging.info('Photo taken successfully %(show_photo_name)s', { 'show_photo_name': photo })
+            photo_location =  '/data/' + photo                   
 
         else:
 
