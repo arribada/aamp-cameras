@@ -14,12 +14,6 @@ RUN	apt-get update && apt-get install iptables
 
 RUN apt-get update && apt-get install libnss-mdns
 	
-# get WiringPi
-RUN cd
-RUN git clone git://git.drogon.net/wiringPi
-RUN cd wiringPi
-RUN ./build
-	
 # here we set up the config for openSSH.
 RUN mkdir /var/run/sshd \
     && echo 'root:resin' | chpasswd \
@@ -33,5 +27,10 @@ RUN pip install -r /requirements.txt
 
 COPY . /usr/src/app
 WORKDIR /usr/src/app
+
+# get WiringPi
+RUN git clone git://git.drogon.net/wiringPi
+RUN cd wiringPi
+RUN ./build
 
 CMD ["bash","start.sh"]
