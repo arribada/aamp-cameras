@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install libnss-mdns
 # get WiringPi
 RUN cd
 RUN git clone git://git.drogon.net/wiringPi
-RUN cd ~/wiringPi
+RUN cd wiringPi
 RUN ./build
 	
 # here we set up the config for openSSH.
