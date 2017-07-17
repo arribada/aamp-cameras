@@ -30,7 +30,6 @@ WORKDIR /usr/src/app
 
 # get WiringPi
 RUN git clone git://git.drogon.net/wiringPi
-RUN cd wiringPi
-RUN ./build
+RUN cd wiringPi ./build
 
 CMD ["bash","start.sh"]
