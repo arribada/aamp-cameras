@@ -56,7 +56,7 @@ while True:
 
             # Using the raspistill library to take a photo
             cmd = 'raspistill -t 300 -w 1920 -h 1440 --nopreview -o /data/' + photo 
-			print 'cmd' +cmd          
+		print 'cmd' +cmd          
 
             # Log that we have just taken a photo
             logging.info('About to take a photo and save to the /data folder')

@@ -39,7 +39,7 @@ b=$(gpio -g read 26)
 # Echo the value to the console so we know it's state
 echo "$b"
 
-if $b == "HIGH"
+if $b = "HIGH"
 then
 
 	echo "Entering debug mode"
