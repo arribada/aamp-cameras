@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 RUN	apt-get update && apt-get install iptables
 
 RUN apt-get update && apt-get install libnss-mdns
+
+RUN apt-get update && apt-get -y install python-rpi.gpio
 	
 # here we set up the config for openSSH.
 RUN mkdir /var/run/sshd \
