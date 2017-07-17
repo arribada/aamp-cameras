@@ -30,7 +30,7 @@ python ./activate_connection.py $ACCESS_POINT_NAME
 
 sleep 5
 
-# set more to BCM and then pull up pin 26
+# set mode to BCM and then pull up pin 26
 gpio -g mode 26 up
 
 # Set the variable through command substitution

@@ -56,7 +56,7 @@ while True:
 
             # Using the raspivid library to take a 5 second video
             cmd = 'raspivid -t 5000 -w 800 -h 600 -o /data/' + video 
-			print 'cmd ' +cmd          
+		print 'cmd ' +cmd          
 
             # Log that we have just taken a video
             logging.info('About to take a video and save to the /data folder')
